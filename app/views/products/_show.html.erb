@@ -1,0 +1,15 @@
+<div class="row">
+  <% products.each do |product| %>
+    <div class="col-sm-6 col-md-3 product">
+      <div class="thumbnail">
+        <%= image_tag product.photo.url(:thumb), class: 'img-responsive' %>
+        <div class="caption">
+          <h4><strong><%= product.name%></strong></h4>
+          <h6><%= product.description%></h6>
+          <p><strong><%= product.to_price %></strong></p>
+          <%= render 'in_shopping_carts/create', product_id: product.id, cart_id: @cart_id %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

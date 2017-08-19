@@ -1,0 +1,7 @@
+<div class="container">
+	<h1><strong><%= @brand.name%></strong> <small>(<%= @brand.product.length%>)</small></h1>
+	<div class="col-xs-12 col-md-9">
+		<%= render 'products/show', products: @brand.product%>
+	</div>
+	<%= render 'partials/brands', brands: @brands%>
+</div>

@@ -1,0 +1,49 @@
+<section class="container">
+  <h1>Tu carrito de compras</h1>
+  <% if @cart.in_shopping_carts.length == 0 %>
+    <div class="alert alert-warning" role="alert">
+      <strong>¡Ey!</strong> No tienes ningún producto en tu carrito de compras, visita nuestro catálogo de <%= link_to 'productos', products_path%>.
+    </div>
+  <%else%>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>Producto</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th class="text-right" colspan="2"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @cart.in_shopping_carts.each do |in_s| %>
+          <% product = in_s.product %>
+          <tr>
+            <td><%= image_tag product.photo.url(:thumb), width: '40', height: '40'%></td>
+            <td class="text-center"><%= product.name %></td>
+            <td><%= product.description%></td>
+            <td class="text-center"><%= product.to_price %></td>
+            <td><%#= link_to 'Ver producto', product %> <%= link_to 'Eliminar', in_shopping_cart_path(in_s), method: :delete%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <div class="actions">
+    <% current_user = @current_user ? @current_user['id'] : 1 %>
+    <% if @user_signed_in%>
+      <% if @cart.in_shopping_carts.length > 0%>
+        <%= link_to "Comprar ahora", nueva_factura_path(@cart.id, current_user), method: :post, class: 'btn btn-lg btn-success' %>
+      <% end %>
+    <% else %>
+      <div class="alert alert-danger" role="alert">
+        <strong>¡Ey!</strong> Para terminar tu orden, necesitas iniciar sesión.
+        <p>Puedes <%= link_to 'crear una cuenta', new_user_path %> o <%= link_to 'iniciar sesión', login_path%></p>
+      </div>
+    <% end %>
+  </div>
+  <br>
+  
+</section>
+

@@ -1,0 +1,30 @@
+<div class="container">
+	<table class="table table-bordered">
+		<thead>
+			<th>ID</th>
+			<th>Producto</th>
+			<th>Descripción</th>
+			<th>Proveedor</th>
+			<th>Marca</th>
+			<th>Precio</th>
+			<th>Pr. Mayoreo</th>
+			<th>Inventario</th>
+			<th>Acciones</th>
+		</thead>
+		<tbody>
+			<% @products.each do |product| %>
+				<tr>	
+					<th><%=product.id%></th>
+					<td><%= product.name%></td>
+					<td><%= product.description%></td>
+					<td><%= product.supplier.name%></td>
+					<td><%= product.brand.name%></td>
+					<td><%= product.to_price%></td>
+					<td>$<%= product.wholesale_price / 100%></td>
+					<td><%= product.stock%></td>
+					<td><%= link_to 'Editar', edit_product_path(product)%> <%= link_to 'Eliminar', product, method: :delete%> </td>
+				</tr>
+			<%end%>
+		</tbody>
+	</table>
+</div>

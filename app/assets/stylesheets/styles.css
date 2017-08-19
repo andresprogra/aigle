@@ -1,0 +1,153 @@
+body{
+	/*background-color: #eee;*/
+}
+header{
+	padding: 7px 0;
+	background: #541b1b;
+}
+header .logo{
+	width: 170px;
+}
+
+section.main .form{
+	background-color: #FFFFFF;
+	padding: 2em 1em;
+	border-radius: 4px;
+	margin-top: 5em;
+	box-shadow: 1px 1px 17px 2px #b5b5b5;
+}
+
+.logo{
+	margin-left: 10px;
+}
+.before_header{
+	background-color: rgb(240, 243, 242);
+	padding: 10px;
+}
+.color-red{
+	color:red;
+}
+
+.menu{
+	background: rgb(240, 243, 242);
+}
+.menu ul{
+	display: flex;
+	justify-content: space-between;
+}
+
+.menu ul li{
+	padding: 10px;
+	list-style: none;
+	
+}
+
+.product{
+	height: 317px;
+}
+.infoBussines div{
+	/*background: #eee;*/
+}
+
+
+.main {
+	width: 100%;
+	min-height: 10vh;
+	background: url('img/cbta_shape2.png') no-repeat;
+	background-size: cover;
+	background-position-y: -100px;
+	margin-top: -20px;
+}
+.navbar{
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.main .main__header{
+	z-index: 100;
+	background: #fff;
+	width: 100%;
+	padding: 0;
+	top: 15px;
+	position: relative;
+}
+.main .main__header .mr--auto{
+	margin-left: auto !important;
+}
+.main .main__header li a{
+	padding: 15px 10px;
+	margin: 0 10px;
+}
+.main .main__header li:hover{
+	background: #2196F3;
+}
+.main .main__header li:hover a{
+	color: #FFFFFF !important;
+}
+.main .main__description{
+	height: 400px;
+	color: #FFFFFF;
+}
+.main .main__description .main__title{
+
+}
+.main .main__description .main__promotional iframe{
+	margin: 0 auto;
+}
+.main .main__description .main--underline{
+	text-decoration: underline;
+}
+.services{
+	margin-top: -200px;
+	display: none;
+}
+.services .container{
+	//background-color: #00BCD4;
+	color: #FFFFFF;
+}
+.services__item{
+	background-color: #BBDEFB;
+	//border: 2px solid #CCCCCC;
+}
+.services .services__item img{
+	
+	height: 250px;
+	border-radius: 100%;
+	margin: 0 auto;
+}
+.services .services__item--main{
+	margin-top: -100px;
+}
+
+.model .model__title {
+	background: #00BCD4;
+	width: 100%;
+	transform: skew(-20deg);
+	//width: 400px;
+	//height: 400%;
+}
+
+.model .model__title p{
+	padding: 15px;
+	color: #fff;
+	text-align: center;
+	font-size: 19px;
+}
+.footer{
+	background: url('img/footer.png') no-repeat;
+	background-size: cover;
+	width: 100%;
+	min-height: 300px;
+	margin: 0 auto;
+}
+.middle{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.img-responsive{
+	max-width: 100%;
+}
+.relleno{
+	min-height: 100vh;
+}

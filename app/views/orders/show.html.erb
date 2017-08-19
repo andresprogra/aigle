@@ -1,0 +1,70 @@
+<!-- <p id="notice"><%= notice %></p>-->
+
+<section class="container">
+	<h1 class="text-center">¡Gracias!</h1>
+	<h2 class="text-center">Hemos procesado tu compra</h2>
+	<p class="text-center">Pronto estaremos entregando tu orden.</p>
+	<div>
+		<br>
+		<% if @current_user.admin? %>
+			<%= link_to 'Pago recibido', statuses_path('order_id': @order.id, status: 1), class: 'btn btn-xs', method: :post %>
+			<%= link_to 'Enviado', statuses_path('order_id': @order.id, status: 2), class: 'btn btn-xs', method: :post %>
+			<%= link_to 'Entregado', statuses_path('order_id': @order.id, status: 3), class: 'btn btn-xs', method: :post %>
+		<% end %>
+		<br>
+	</div>
+	
+	<div class="col-xs-12 col-md-8">
+		<div class="panel panel-default">
+	    	<div class="panel-heading">
+	    		<p><strong>Orden <span class="color-red">No.<%=@order.id%></span></strong></p>
+	    	</div>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th colspan="1"></th>
+						<th>Producto</th>
+						<th>Descripción</th>
+						<th>Precio</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @order.cart.in_shopping_carts.each do |in_s|%>
+						<% product = in_s.product%>
+						<tr>
+							<td><%= image_tag product.photo.url(:thumb), width: '40', height: '40' %></td>
+							<td><%= product.name%></td>
+							<td><%= product.description%></td>
+							<td><%= product.to_price%></td>
+						</tr>
+					<%end %>
+				</tbody>
+			</table>
+	    </div>
+
+	    <div>
+			<h2 class="text-right">Total <span class="label label-success"><%=@order.total%></span></h2>
+		</div>
+	</div>
+	<div class="col-xs-12 col-md-4">
+	  <div class="panel panel-default">
+	    <div class="panel-heading">Historial</div>
+	    <table class="table">
+	      <tbody>
+	        <% @order.statuses.each do |status|%>
+	          <tr>
+	            <td><%= status.status_label.html_safe %></td>
+	            <td><%= status.created_at %></td>
+	          </tr>
+	        <% end %>
+	      </tbody>
+	    </table>
+	  </div>
+	</div>
+	
+	
+
+</section>
+
+
+

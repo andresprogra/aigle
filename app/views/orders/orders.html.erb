@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="panel panel-success">
+    <table class="table table-bordered">
+      <thead class="panel-heading">
+        <tr>
+          <th>Fecha del pedido</th>
+          <th>Última actualización</th>
+          <th>Total</th>
+          <th>Estado actual</th>
+          <th>Cliente</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.created_at %></td>
+            <td><%= order.updated_at %></td>
+            <td><%= order.total %></td>
+            <td class="text-center"><%= order.status %></td>
+            <td><%= order.user.name %></td>
+            <td class="text-center"><%= link_to 'Ver', order %></td>          
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+
+  <br>
+</div>

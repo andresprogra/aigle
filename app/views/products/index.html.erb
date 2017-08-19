@@ -1,0 +1,34 @@
+
+<section class="container">
+	<div class="infoBussines">
+		<div class="col-xs-12 col-md-4">
+			<div class="thumbnail">
+				<p>Mision</p>
+				<p>Poner al alcance del CBTa 112, soluciones que optimicen la gestión de sus necesidades en la nueva era digital con servicios y productos que impulsen su crecimiento y optimicen sus procesos tecnológicos en tiempo real.</p>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-4">
+			<div class="thumbnail">
+				<p>¿Quienes somos?</p>
+				<p><strong>Aigle</strong> es una plataforma que se especializa en el desarrollo de soluciones informáticas integrales para la satisfacción del personal docente, admnistrativo y estudiantil del CBTa 112, dando un servicio de primer nivel con una de las tecnologías más altas en el mercado.</p>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-4">
+			<div class="thumbnail">
+				<p>Vision</p>
+				<p>Nos proponemos ser los mejores especialistas en la industria de las TIC's, ofreciendo innovación, calidad y eficiencia con servicios orientados a satisfacer las exigencias y demandas del personal docente, adminsitrativo y estudiantil para brindar servicios y productos de primer nivel. </p>
+			</div>
+		</div>
+	</div>
+  	<div class="col-xs-12 col-md-10">
+	    <h1><strong>Productos</strong> <small>(<%= @products.length%>)</small></h1>
+	    <div class="col-xs-12">
+	    	<%= render 'show', products: @products%>
+	    </div>
+  	</div>
+  	<%= render 'partials/brands', brands: @brands%>
+  	<br>
+  <%#= link_to 'New Product', new_product_path %>
+</section>
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Aigle</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="before_header col-xs-12">
+      <div class="container">
+        <div class="col-xs-12 col-md-6 text-left">
+          <% if @user_signed_in %>
+            <p>¡Hola <%= @current_user.first_name %>, bienvenido(a)! <%= link_to 'Cerrar sesión', logout_path, method: :delete%></p>
+          <%else %>
+            <%= link_to 'Iniciar sesión', login_path  %>
+          <% end %>
+        </div>
+        <div class="col-xs-12 col-md-6 text-right">
+          <%= link_to "Tienes (#{@cart_session.in_shopping_carts.length}) producto(s) en tu carrito", carts_path %>
+        </div>
+        
+      </div>
+    </div>
+    <header>
+      <div class="container">
+        <%= image_tag('logo_blanco.png', class: 'img-responsive logo')%>       
+      </div>
+    </header>
+    
+    <% if  @user_signed_in && @current_user.admin? %>
+      <%= render 'partials/menu_admin' %>
+    <% end %> 
+    <% if  @user_signed_in && @current_user.client? %>
+      <%= render 'partials/menu_client' %>
+    <% end %>
+    <br>
+    <section class="main">
+      <div class="container">
+        <header class="main__header"></header>
+        <div class="row main__description"></div>
+      </div>
+    </section> 
+    <br>
+    <div class="container" style="display:<%= notice.blank? && alert.blank? ? 'none' : 'block'%>;">
+      <div class="alert alert-info" role="alert">
+        <strong><%= notice %></strong>
+        <strong><%= alert %></strong>
+      </div>
+    </div>
+    <br>
+    <%= yield %>
+    <div class="container">
+      <%= image_tag "4.svg", class: "img-responsive" %>
+    </div>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>
